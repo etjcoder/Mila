@@ -1,6 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #24355C">
+    <div class="container">
+        <a class="navbar-brand" href="#">Admin tools</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Tools!
+                    </a>
+                    <!-- Here's the magic. Add the .animate and .slide-in classes to your .dropdown-menu and you're all set! -->
+                    <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" id="createCaption" href="#">Create Caption</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" id="createCategory" href="#">Create Categories</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" id="viewCaptions" href="#">View Mira Captions</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" id="viewCaptions" href="#">View Community Captions</a>
+                        <div class="dropdown-divider"></div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
 <div class="container text-center">
-    <div class="jumbotron jumbotron-fluid"
-        style="">
+    <div class="jumbotron jumbotron-fluid" style="">
         <div class="container">
             <h1 class="display-4 text-dark"><strong>Welcome to the Admin View!</strong></h1>
             <p class="lead text-dark"><strong>Please submit your Captions here!</strong></p>
@@ -11,8 +45,7 @@
     {{!-- <div class="row"> --}}
 
     <div class="caption-input-form">
-        <div class="text-center"
-            style="background: lightpink">
+        <div class="text-center" style="background: lightpink">
             <h3><strong><u>Caption Input Form</u></strong></h3>
             <form id="admin-caption-input" method="POST">
                 <div class="form-group">
@@ -49,12 +82,13 @@
                     <label for="caption-reference">What is this caption referencing?</label>
                     <input type="text" id="caption-reference"><br>
                     {{!-- Whether it's a lyric --}}
-                    <input type="checkbox" name="lyric" id="caption-lyric">Lyric <br>  
-                     {{!-- Whether it's a caption  --}}
-                    <input type="checkbox" name="quote" id="caption-quote" >Quote
+                    <input type="checkbox" name="lyric" id="caption-lyric">Lyric <br>
+                    {{!-- Whether it's a caption  --}}
+                    <input type="checkbox" name="quote" id="caption-quote">Quote
                     <br>
-                      {{!-- Original Author/Source --}}
-                      <label for="caption-original-author">What is the source of this caption? (name of author, movie, song, etc.)</label>
+                    {{!-- Original Author/Source --}}
+                    <label for="caption-original-author">What is the source of this caption? (name of author, movie,
+                        song, etc.)</label>
                     <input type="text" id="caption-original-author">
                     <br>
                 </div>
@@ -62,12 +96,38 @@
                 {{!-- <button type="submit">Input Your Request</button> --}}
                 {{!-- <button class="btn btn-secondary btn-rounded" type="submit"><i class="far fa-clone left"></i>
                     Submit this caption</button> --}}
-                    <button class="btn btn-secondary btn-rounded" id="admin-caption-btn" type="button"><i class="far fa-clone left"></i>
+                <button class="btn btn-secondary btn-rounded" id="admin-caption-btn" type="button"><i
+                        class="far fa-clone left"></i>
                     Submit this caption</button>
             </form>
         </div>
     </div>
     {{!-- </div> --}}
+
+    <div class="category-input-form">
+        <div class="text-center" style="background: pink">
+            <h3><strong><u>Category Input Form</u></strong></h3>
+            <form id="admin-caption-input" method="POST">
+                <div class="form-group">
+                    {{!-- Your name --}}
+                    <label for="category-text">Input Category Type here</label>
+                    <input type="text" id="category-text">
+                    <br>
+                
+                {{!-- Submit Info  --}}
+                {{!-- <button type="submit">Input Your Request</button> --}}
+                {{!-- <button class="btn btn-secondary btn-rounded" type="submit"><i class="far fa-clone left"></i>
+                    Submit this caption</button> --}}
+                <button class="btn btn-secondary btn-rounded" id="admin-category-btn" type="button"><i
+                        class="far fa-clone left"></i>
+                    Submit this category</button>
+            </form>
+            <div>
+                <h4>Edit Categories Here</h4>
+
+            </div>
+        </div>
+    </div>
 
 
 </div>

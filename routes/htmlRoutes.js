@@ -11,9 +11,23 @@ module.exports = function (app) {
 
     app.get("/admin", function(req, res){
 
+        var categoryArray = [];
+        var hbsObject = [];
+
+        db.Category.find({}).then(function(data){
+            
+            hbsObject = {
+                categories: data
+            };
+
+            // for (i = 0; i < data.length; i++) {
+            //     categoryArray.push(data[i]);
+            // }
+
+        })
 
 
-        res.render("admin")
+        res.render("admin", hbsObject)
     })
 
 

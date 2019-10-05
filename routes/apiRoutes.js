@@ -23,6 +23,15 @@ module.exports = function (app) {
         });
    });
 
+   //This route handles the submission of a new category on the Admin page
+   app.post("/admin/submit/category", function (req, res) {
+    console.log(req.body);
+
+    db.Category.create(req.body)
+        .then(function(dbCategory){
+            res.json(dbCategory)
+        })
+   })
 
 
 
