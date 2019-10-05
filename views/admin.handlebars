@@ -20,9 +20,9 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" id="createCategory" href="#">Create Categories</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" id="viewCaptions" href="#">View Mira Captions</a>
+                        <a class="dropdown-item" id="viewMainCaptions" href="#">View Mira Captions</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" id="viewCaptions" href="#">View Community Captions</a>
+                        <a class="dropdown-item" id="viewCommunityCaptions" href="#">View Community Captions</a>
                         <div class="dropdown-divider"></div>
                     </div>
                 </li>
@@ -56,15 +56,9 @@
                     {{!-- Your email --}}
                     <label for="caption-category">Please select your Category</label>
                     <select name="categories" id="caption-category">
-                        <option value="alcohol">Alcohol</option>
-                        <option value="fall">Fall/Autumn</option>
-                        <option value="fitness">Fitness</option>
-                        <option value="funny">Funny</option>
-                        <option value="pets">Pets</option>
-                        <option value="spring">Spring</option>
-                        <option value="summer">Summer</option>
-                        <option value="wedding">Wedding</option>
-                        <option value="winter">Winter</option>
+                        {{#each categories}}
+                        <option value={{category}}>{{category}}</option>
+                        {{/each}}
                     </select>
                     <br>
                     {{!-- Your phone number --}}
@@ -123,8 +117,10 @@
                     Submit this category</button>
             </form>
             <div>
-                <h4>Edit Categories Here</h4>
-
+                <h5>Existing Categories Here (Will be editable in the future)</h5>
+                {{#each categories}}
+                    <p><strong>{{category}}</strong></p>
+                {{/each}}
             </div>
         </div>
     </div>

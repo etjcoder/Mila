@@ -1,6 +1,7 @@
 var db = require("../models");
 var path = require("path");
 
+
 module.exports = function (app) {
 
     app.get("/", function(req, res){
@@ -11,24 +12,23 @@ module.exports = function (app) {
 
     app.get("/admin", function(req, res){
 
-        var categoryArray = [];
-        var hbsObject = [];
-
-        db.Category.find({}).then(function(data){
+        db.Category.find({}, null, {sort: {category: 1}}).then(function(dbCategories){
             
-            hbsObject = {
-                categories: data
-            };
-
-            // for (i = 0; i < data.length; i++) {
-            //     categoryArray.push(data[i]);
-            // }
-
+            res.render("admin", {
+                categories: dbCategories
+            })
         })
 
+    });
 
-        res.render("admin", hbsObject)
-    })
+    app.get("/admin/view/maincaptions", function(req, res) {
 
+        db.Maincaption.find({}).then(function(dbCaptions) {
+
+            res.render("mainCaptionTable", {
+                captions: dbCaptions
+            })
+        })
+    });
 
 }

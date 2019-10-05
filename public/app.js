@@ -25,6 +25,21 @@ $(document).ready(function () {
     $('.category-input-form').show();
   })
 
+  //Return from any foreign view back to Admin dashboard
+  $("#adminBtn").on("click", function (event) {
+    event.preventDefault();
+    console.log("You are now going to admin view");
+    window.location.assign("/admin")
+  })
+
+   //from manager view, on click view jobs button
+   $("#viewMainCaptions").on("click", function (event) {
+    event.preventDefault();
+    console.log("view list of all main captions");
+    window.location.assign("/admin/view/maincaptions")
+
+  })
+
 
   ///////////////////////////////////////////////////////////////////
   /////// ADMIN CREATE CAPTION FORM HANDLER /////////////////////////

@@ -3,6 +3,7 @@ var express = require("express");
 var exphbs = require("express-handlebars");
 var db = require("./models");
 var mongojs = require("mongojs");
+var helpers = require('handlebars-helpers')()
 
 var app = express();
 var PORT = process.env.PORT || 3000;
