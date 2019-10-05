@@ -8,7 +8,7 @@ var PORT = process.env.PORT || 3000;
 var path = require("path");
 
 var axios = require("axios");
-var cheerio = require("cheerio");
+// var cheerio = require("cheerio");
 var mongoose = require("mongoose");
 
 app.use(express.urlencoded({ extended: false}));
