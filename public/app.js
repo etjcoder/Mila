@@ -16,15 +16,15 @@
     console.log ()
     console.log ()
 
-    var tags = $("#caption-tags").val().trim();
-    var tagsArr = tags.split(",");
-    console.log(tagsArr);
+    // var captionTags = $("#caption-tags").val().trim();
+    // var tagsArr = captionTags.split(",");
+    // console.log(tagsArr);
 
     var newCaption = {
       caption: $("#caption-text").val().trim(),
       category: $("#caption-category").val().trim(),
-      tags: tagsArr,
       author: $("#caption-author").val().trim(),
+      tags: $("#caption-tags").val().trim(),
       reference: $("#caption-reference").val().trim(),
       lyric: lyricBoolean,
       quote: quoteBoolean,
@@ -32,6 +32,16 @@
     }
 
     console.log(newCaption);
+    console.log(newCaption.tags);
+
+    $.ajax("admin/submit/caption", {
+      type: "POST",
+      data: newCaption
+    }).then(function () {
+      alert("Your caption has been submitted!");
+      location.reload();
+    })
+
   })
 
 })

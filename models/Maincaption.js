@@ -13,11 +13,12 @@ var MainCaptionSchema = new Schema({
         required: true,
         unique: false
     },
-    tags: {
-        type: [String],
-        required: false,
-        unique: false
-    },
+    // tags: {
+    //     type: [String],
+    //     required: true,
+    //     unique: false,
+    //     default: []
+    // },
     author: {
         type: String,
         required: true,
@@ -54,6 +55,11 @@ var MainCaptionSchema = new Schema({
         default: 0
     }, 
     images: {
+        type: [String],
+        required: false,
+        unique: false
+    }, 
+    tags: {
         type: [String],
         required: false,
         unique: false
