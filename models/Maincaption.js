@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-var FeaturedCaptionSchema = new Schema({
+var MainCaptionSchema = new Schema({
     caption: {
         type: String,
         required: true,
@@ -21,7 +21,7 @@ var FeaturedCaptionSchema = new Schema({
         type: String,
         required: true,
         unique: false,
-        default: ""
+        default: "onCap"
     },
     reference: {
         type: String,
@@ -68,6 +68,6 @@ var FeaturedCaptionSchema = new Schema({
     }
 })
 
-var Featuredcaption = mongoose.model("Featuredcaption", FeaturedCaptionSchema);
+var Maincaption = mongoose.model("Maincaption", MainCaptionSchema);
 
-module.exports = Featuredcaption;
+module.exports = Maincaption;
