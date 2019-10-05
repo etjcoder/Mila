@@ -13,7 +13,7 @@
     <div class="caption-input-form">
         <div class="text-center"
             style="background: lightpink">
-            <form id="admin-caption-input">
+            <form id="admin-caption-input" method="POST">
                 <div class="form-group">
                     {{!-- Your name --}}
                     <label for="caption-text">Input Caption Text here</label>
@@ -53,11 +53,11 @@
                     <br>
                 </div>
                 {{!-- Submit Info  --}}
-                <button type="submit">Input Your Request</button>
+                {{!-- <button type="submit">Input Your Request</button> --}}
                 {{!-- <button class="btn btn-secondary btn-rounded" type="submit"><i class="far fa-clone left"></i>
                     Submit this caption</button> --}}
-                    {{!-- <button class="btn btn-secondary btn-rounded" id="admin-caption-btn" type="button"><i class="far fa-clone left"></i> --}}
-                    {{!-- Submit this caption</button> --}}
+                    <button class="btn btn-secondary btn-rounded" id="admin-caption-btn" type="button"><i class="far fa-clone left"></i>
+                    Submit this caption</button>
             </form>
         </div>
     </div>

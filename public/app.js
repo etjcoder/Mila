@@ -1,5 +1,9 @@
  //Customer requesting a job POST route from /view/customer/
- $("#caption-input-form").on("submit", function (event) {
+ console.log("JS loaded")
+ 
+ $(document).ready( function(){ 
+ console.log("doc ready here")
+ $("#admin-caption-btn").on("click", function (event) {
     event.preventDefault();
     console.log("clicked")
 
@@ -21,6 +25,9 @@
     }
 
     console.log(newCaption);
+  })
+
+})
 
     // $.ajax("/api/customers", {
     //   type: "POST",
@@ -29,4 +36,3 @@
     //   alert("Youre request has been submitted!")
     //   location.reload()
     // })
-  });
