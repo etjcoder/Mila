@@ -5,22 +5,29 @@
  console.log("doc ready here")
  $("#admin-caption-btn").on("click", function (event) {
     event.preventDefault();
-    console.log("clicked")
+    // console.log("clicked")
 
-   var lyricBoolean = false;
-    var quoteBoolean = false;
-    var lyricText = $("#caption-lyric").val().trim()
-    var quoteText = $("#caption-quote").val().trim()
-    
+  // console.log($("#caption-lyric"))
+
+   var lyricBoolean = document.getElementById("caption-lyric").checked;
+    var quoteBoolean = document.getElementById("caption-quote").checked
+    // var lyricText = $("#caption-lyric").val().trim()
+    // var quoteText = $("#caption-quote").val().trim()
+    console.log ()
+    console.log ()
+
+    var tags = $("#caption-tags").val().trim();
+    var tagsArr = tags.split(",");
+    console.log(tagsArr);
 
     var newCaption = {
       caption: $("#caption-text").val().trim(),
       category: $("#caption-category").val().trim(),
-      tags: $("#caption-tags").val().trim(),
+      tags: tagsArr,
       author: $("#caption-author").val().trim(),
       reference: $("#caption-reference").val().trim(),
-      lyric: $("#caption-lyric").val(),
-      quote: $("#caption-quote").val(),
+      lyric: lyricBoolean,
+      quote: quoteBoolean,
       originalAuthor: $("#caption-original-author").val().trim(),
     }
 

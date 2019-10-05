@@ -13,6 +13,7 @@
     <div class="caption-input-form">
         <div class="text-center"
             style="background: lightpink">
+            <h3><strong><u>Caption Input Form</u></strong></h3>
             <form id="admin-caption-input" method="POST">
                 <div class="form-group">
                     {{!-- Your name --}}
@@ -21,7 +22,7 @@
                     <br>
                     {{!-- Your email --}}
                     <label for="caption-category">Please select your Category</label>
-                    <select name="categories">
+                    <select name="categories" id="caption-category">
                         <option value="alcohol">Alcohol</option>
                         <option value="fall">Fall/Autumn</option>
                         <option value="fitness">Fitness</option>
@@ -29,7 +30,7 @@
                         <option value="pets">Pets</option>
                         <option value="spring">Spring</option>
                         <option value="summer">Summer</option>
-                        <option value="weddomg">Wedding</option>
+                        <option value="wedding">Wedding</option>
                         <option value="winter">Winter</option>
                     </select>
                     <br>
@@ -39,13 +40,18 @@
                     <br>
                     {{!-- Customer Address --}}
                     <label for="caption-author">What is your name? (Optional)</label>
-                    <input type="text" id="caption-author">
+                    <input type="text" value="Mira" id="caption-author">
+                    <br>
+                    <br>
+                    <p><strong><i><u>Only answer below if this isn't an original caption</u></i></strong></p>
                     <br>
                     {{!-- Customer Acreage --}}
                     <label for="caption-reference">What is this caption referencing?</label>
                     <input type="text" id="caption-reference"><br>
-                    <input type="checkbox" name="caption-lyric" value="lyric">Lyric <br>   
-                    <input type="checkbox" name="caption-quote" value="quote">Quote
+                    {{!-- Whether it's a lyric --}}
+                    <input type="checkbox" name="lyric" id="caption-lyric">Lyric <br>  
+                     {{!-- Whether it's a caption  --}}
+                    <input type="checkbox" name="quote" id="caption-quote" >Quote
                     <br>
                       {{!-- Original Author/Source --}}
                       <label for="caption-original-author">What is the source of this caption? (name of author, movie, song, etc.)</label>
