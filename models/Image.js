@@ -20,9 +20,8 @@ var ImageSchema = new Schema({
     },
     author: {
         type: String,
-        required: true,
+        required: false,
         unique: false,
-        default: ""
     },
     likes: {
         type: Number,

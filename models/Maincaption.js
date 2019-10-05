@@ -22,7 +22,7 @@ var MainCaptionSchema = new Schema({
         type: String,
         required: true,
         unique: false,
-        default: "onCap"
+        default: "Mira"
     },
     reference: {
         type: String,

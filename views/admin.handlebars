@@ -1,0 +1,67 @@
+<div class="container text-center">
+    <div class="jumbotron jumbotron-fluid"
+        style="">
+        <div class="container">
+            <h1 class="display-4 text-dark"><strong>Welcome to the Admin View!</strong></h1>
+            <p class="lead text-dark"><strong>Please submit your Captions here!</strong></p>
+        </div>
+    </div>
+
+    <br>
+    {{!-- <div class="row"> --}}
+
+    <div class="caption-input-form">
+        <div class="text-center"
+            style="background: lightpink">
+            <form id="admin-caption-input">
+                <div class="form-group">
+                    {{!-- Your name --}}
+                    <label for="caption-text">Input Caption Text here</label>
+                    <input type="text" id="caption-text">
+                    <br>
+                    {{!-- Your email --}}
+                    <label for="caption-category">Please select your Category</label>
+                    <select name="categories">
+                        <option value="alcohol">Alcohol</option>
+                        <option value="fall">Fall/Autumn</option>
+                        <option value="fitness">Fitness</option>
+                        <option value="funny">Funny</option>
+                        <option value="pets">Pets</option>
+                        <option value="spring">Spring</option>
+                        <option value="summer">Summer</option>
+                        <option value="weddomg">Wedding</option>
+                        <option value="winter">Winter</option>
+                    </select>
+                    <br>
+                    {{!-- Your phone number --}}
+                    <label for="caption-tags">Please enter your tags, remember to separate with a comma!</label>
+                    <input type="text" id="caption-tags">
+                    <br>
+                    {{!-- Customer Address --}}
+                    <label for="caption-author">What is your name? (Optional)</label>
+                    <input type="text" id="caption-author">
+                    <br>
+                    {{!-- Customer Acreage --}}
+                    <label for="caption-reference">What is this caption referencing?</label>
+                    <input type="text" id="caption-reference"><br>
+                    <input type="checkbox" name="caption-lyric" value="lyric">Lyric <br>   
+                    <input type="checkbox" name="caption-quote" value="quote">Quote
+                    <br>
+                      {{!-- Original Author/Source --}}
+                      <label for="caption-original-author">What is the source of this caption? (name of author, movie, song, etc.)</label>
+                    <input type="text" id="caption-original-author">
+                    <br>
+                </div>
+                {{!-- Submit Info  --}}
+                <button type="submit">Input Your Request</button>
+                {{!-- <button class="btn btn-secondary btn-rounded" type="submit"><i class="far fa-clone left"></i>
+                    Submit this caption</button> --}}
+                    {{!-- <button class="btn btn-secondary btn-rounded" id="admin-caption-btn" type="button"><i class="far fa-clone left"></i> --}}
+                    {{!-- Submit this caption</button> --}}
+            </form>
+        </div>
+    </div>
+    {{!-- </div> --}}
+
+
+</div>

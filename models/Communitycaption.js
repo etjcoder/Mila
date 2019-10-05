@@ -21,7 +21,7 @@ var CommunityCaptionSchema = new Schema({
     author: {
         type: String,
         required: false,
-        unique: false
+        unique: false,
     },
     reference: {
         type: String,

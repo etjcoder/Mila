@@ -9,5 +9,12 @@ module.exports = function (app) {
         res.render("index");
     })
 
+    app.get("/admin", function(req, res){
+
+
+
+        res.render("admin")
+    })
+
 
 }

@@ -20,9 +20,8 @@ var FeaturedCaptionSchema = new Schema({
     },
     author: {
         type: String,
-        required: true,
+        required: false,
         unique: false,
-        default: ""
     },
     reference: {
         type: String,
