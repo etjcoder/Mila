@@ -1,6 +1,11 @@
  //Customer requesting a job POST route from /view/customer/
  console.log("JS loaded")
- 
+ var string = "Apples, Oranges, Bananas"
+ var lowerCaseString = string.toLowerCase();
+ console.log(lowerCaseString);
+ var splicedArr = lowerCaseString.split(', ')
+    console.log(splicedArr);
+
  $(document).ready( function(){ 
  console.log("doc ready here")
  $("#admin-caption-btn").on("click", function (event) {
