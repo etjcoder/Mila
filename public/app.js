@@ -40,6 +40,12 @@ $(document).ready(function () {
 
   })
 
+  $("#editMainCaptions").on("click", function (event) {
+    event.preventDefault();
+    console.log("edit list of all main captions");
+    window.location.assign("/admin/view/live/maincaptions")
+  })
+
 
   ///////////////////////////////////////////////////////////////////
   /////// ADMIN CREATE CAPTION FORM HANDLER /////////////////////////
@@ -122,12 +128,13 @@ $(document).ready(function () {
     //////////////////////////////////////////////////////////////////////
     ////////////////////// LIVE TABLE EDIT FUNCTIONS /////////////////////
     //////////////////////////////////////////////////////////////////////
-    $(".edit-button").on("click", function(event) {
+    $(".edit-main-button").on("click", function(event) {
       event.preventDefault();
       console.log("Edit button pressed:" + $(this).val())
       var i = $(this).val()
       var lyricBooleanEdit = document.getElementById(`lyric-${i}`).checked;
       var quoteBooleanEdit = document.getElementById(`quote-${i}`).checked
+      var likeNum = parseInt($(`.likes-${i}`).val().trim())
 
       var newEdits = {
         caption: $(`.caption-${i}`).val().trim(),
@@ -138,7 +145,7 @@ $(document).ready(function () {
         lyric: lyricBooleanEdit,
         quote: quoteBooleanEdit,
         originalAuthor: $(`.originalAuthor-${i}`).val().trim(),
-        likes: $(`.likes-${i}`).val().trim()
+        likes: likeNum
       }
 
       console.log(newEdits)
@@ -154,7 +161,25 @@ $(document).ready(function () {
     })
 
 
+    $(".delete-main-button").on("click", function(event) {
+      event.preventDefault();
+      console.log("Delete button pressed:" + $(this).val());
 
+      var id = $(this).val();
+
+      var confirmDeleteCaption = confirm("Are you sure you want to delete this caption?");
+
+      if (confirmDeleteCaption) {
+        $.ajax("/admin/maincaptions/delete/" + id, {
+          type: "POST"
+        }).then(function(response){
+          alert("This caption has been deleted.")
+          location.reload()
+        })
+      };
+
+
+    })
 
 
 

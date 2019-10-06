@@ -1,9 +1,6 @@
 <link rel="stylesheet" href="/styles/table.css">
 
 <style>
-    DIV.table {
-        display: table;
-    }
 
     FORM.tr,
     DIV.tr {
@@ -35,74 +32,80 @@
     }
 </style>
 
+<div class="container">
+    <div class="text-center">
 
-<div class="text-center">
-
-    <div class="jumbotron jumbotron-fluid" style="margin-left: 50px; margin-right: 50px">
-        <div class="container">
-            <h1 class="display-4 text-dark"><strong>Welcome to the Live Table!</strong></h1>
-            <p class="lead text-dark"><strong>Please make any edits you see fit and be sure to press the 'Edit' button
-                    to save your changes!</strong></p>
-            <button id="adminBtn" type="button" class="btn btn-primary">Return</button>
+        <div class="jumbotron jumbotron-fluid" style="">
+            <div class="container">
+                <h1 class="display-4 text-dark"><strong>Welcome to the Live Table!</strong></h1>
+                <p class="lead text-dark"><strong>Please make any edits you see fit and be sure to press the 'Edit'
+                        button
+                        to save your changes!</strong></p>
+                <button id="adminBtn" type="button" class="btn btn-primary">Return</button>
+            </div>
         </div>
-    </div>
 
-    <br>
+        <br>
 
 
-    <h1 style="color: white">All Mira Captions</h1>
-    <div class="table" style="margin-left: 50px; margin-right: 50px;">
+        <h1 style="color: white">All Mira Captions</h1>
+        <div class="table" style="">
 
-        <table class="table table-responsive">
-            <thead>
-                <tr>
-                    {{!-- <th>ID</th> --}}
-                    <th>Caption</th>
-                    <th>Category</th>
-                    <th>Tags</th>
-                    <th>Author</th>
-                    <th>Reference</th>
-                    <th>Lyric?</th>
-                    <th>Quote?</th>
-                    <th>Original Author</th>
-                    <th>Likes</th>
-                    {{!-- <th>Images</th>
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+                        {{!-- <th>ID</th> --}}
+                        <th>Caption</th>
+                        <th>Category</th>
+                        <th>Tags (don't include spaces)</th>
+                        <th>Author</th>
+                        <th>Reference</th>
+                        <th>Lyric? (must re-designate on edit)</th>
+                        <th>Quote? (must re-designate on edit)</th>
+                        <th>Original Author</th>
+                        <th>Likes</th>
+                        {{!-- <th>Images</th>
                             <th>Comments</th>
                             <th>Created</th> --}}
-                    {{!-- <th>Last Updated</th> --}}
-                </tr>
-            </thead>
-            <tbody>
+                        {{!-- <th>Last Updated</th> --}}
+                    </tr>
+                </thead>
+                <tbody>
 
-                {{#each captions}}
-                <tr>
-                    <form class="edit-table">
-                        {{!-- <td>{{id}}</td> --}}
-                        <td><input style="width: 300px;" type="text" class="caption-{{id}}" value="{{caption}}"></td>
-                        <td><input style="width: 100px;" type="text" class="category-{{id}}" value="{{category}}"></td>
-                        <td><input style="" type="text" class="tags-{{id}}" value="{{tags}}"></td>
-                        <td><input style="width: 75px;" type="text" class="author-{{id}}" value="{{author}}"></td>
-                        <td><input style="" type="text" class="reference-{{id}}" value="{{reference}}"></td>
-                        <td><input style="width: 50px;" type="checkbox" id="lyric-{{id}}"></td>
-                        <td><input style="width: 50px;" type="checkbox" id="quote-{{id}}"></td>
-                        <td><input style="width: 100px;" type="text" class="originalAuthor-{{id}}"
-                                value="{{originalAuthor}}"></td>
-                        <td><input style="width: 30px;" type="text" class="likes-{{id}}" value="{{likes}}"></td>
-                        {{!-- <td><input type="text" class="images-{{id}}" value="{{images}}"></td>
+                    {{#each captions}}
+                    <tr>
+                        <form class="edit-table">
+                            {{!-- <td>{{id}}</td> --}}
+                            <td><input style="width: 300px;" type="text" class="caption-{{id}}" value="{{caption}}">
+                            </td>
+                            <td><input style="width: 100px;" type="text" class="category-{{id}}" value="{{category}}">
+                            </td>
+                            <td><input style="" type="text" class="tags-{{id}}" value="{{tags}}"></td>
+                            <td><input style="width: 75px;" type="text" class="author-{{id}}" value="{{author}}"></td>
+                            <td><input style="" type="text" class="reference-{{id}}" value="{{reference}}"></td>
+                            <td><input style="width: 50px;" type="checkbox" id="lyric-{{id}}"></td>
+                            <td><input style="width: 50px;" type="checkbox" id="quote-{{id}}"></td>
+                            <td><input style="width: 100px;" type="text" class="originalAuthor-{{id}}"
+                                    value="{{originalAuthor}}"></td>
+                            <td><input style="width: 30px;" type="text" class="likes-{{id}}" value="{{likes}}"></td>
+                            {{!-- <td><input type="text" class="images-{{id}}" value="{{images}}"></td>
                                 <td><input type="text" class="comments-{{id}}" value="{{comments}}"></td>
                                 <td><input type="text" class="created_at-{{id}}" value="{{created_at}}"></td> --}}
-                        {{!-- <td><input type="text" class="updatedAt-{{id}}" value="{{updatedAt}}"></td> --}}
-                        <td><button type="submit" class="edit-button" value="{{id}}">Edit</button></td>
-                    </form>
-                    {{/each}}
+                            {{!-- <td><input type="text" class="updatedAt-{{id}}" value="{{updatedAt}}"></td> --}}
+                            <td><button type="submit" class="btn btn-primary edit-main-button" value="{{id}}">Edit</button></td>
+                            <td><button type="submit" class="btn btn-danger delete-main-button" value="{{id}}">Delete</button></td>
 
-            </tbody>
-        </table>
-    </div>
-    {{!-- </div> --}}
-    {{!-- </div> --}}
+                        </form>
+                        {{/each}}
 
-    {{!-- </div>
+                </tbody>
+            </table>
+        </div>
+        {{!-- </div> --}}
+        {{!-- </div> --}}
+
+        {{!-- </div>
     </div> --}}
 
+    </div>
 </div>

@@ -41,6 +41,9 @@ module.exports = function (app) {
         console.log(req.body);
         var lyricBoolean = false;
         var quoteBoolean = false;
+        var lowerCaseTags = req.body.tags.toLowerCase();
+        var splicedArr = lowerCaseTags.split(',')
+        console.log(splicedArr);
 
         if (req.body.lyric === "true") {
             lyricBoolean = true;
@@ -51,24 +54,24 @@ module.exports = function (app) {
         }
 
         // setTimeout(function () {
-            db.Maincaption.update({ _id: id },
-                {
-                    caption: req.body.caption,
-                    category: req.body.category,
-                    tags: req.body.tags,
-                    author: req.body.author,
-                    reference: req.body.reference,
-                    lyric: req.body.lyric,
-                    quote: req.body.quote,
-                    originalAuthor: req.body.originalAuthor,
-                    // likes: req.body.likes
-                }
+        db.Maincaption.update({ _id: id },
+            {
+                caption: req.body.caption,
+                category: req.body.category,
+                tags: splicedArr,
+                author: req.body.author,
+                reference: req.body.reference,
+                lyric: req.body.lyric,
+                quote: req.body.quote,
+                originalAuthor: req.body.originalAuthor,
+                likes: req.body.likes
+            }
 
-            ).then(function (dbCaptions) {
+        ).then(function (dbCaptions) {
 
 
-                console.log(dbCaptions)
-            })
+            console.log(dbCaptions)
+        })
         // }, 1000)
         // db.Maincaption.update({ _id: id },
         //     {
@@ -91,8 +94,15 @@ module.exports = function (app) {
 
     })
 
+    app.post("/admin/maincaptions/delete/:id", function(req, res) {
 
+    var id = req.params.id;
 
-
+    db.Maincaption.remove({ _id: id })
+        .then(function (dbCaption) {
+            res.json(dbCaption);
+        });
+    
+    });
 
 }

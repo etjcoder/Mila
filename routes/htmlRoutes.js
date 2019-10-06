@@ -35,10 +35,13 @@ module.exports = function (app) {
 
         db.Maincaption.find({}).then(function(dbCaptions){
 
-
-            res.render("liveTableMain", {
-                captions: dbCaptions
+            db.Category.find({}).then(function(dbCategories){
+                res.render("liveTableMain", {
+                    captions: dbCaptions,
+                    categories: dbCategories
+                })
             })
+
         })
     });
  
