@@ -33,7 +33,7 @@ module.exports = function (app) {
 
     app.get("/admin/view/live/maincaptions", function(req, res) {
 
-        db.Maincaption.find({}).then(function(dbCaptions){
+        db.Maincaption.find({}, null, {sort: {updatedAt: -1}}).then(function(dbCaptions){
 
             db.Category.find({}).then(function(dbCategories){
                 res.render("liveTableMain", {

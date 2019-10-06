@@ -130,6 +130,7 @@ $(document).ready(function () {
     //////////////////////////////////////////////////////////////////////
     $(".edit-main-button").on("click", function(event) {
       event.preventDefault();
+      alert("Edit registered!");
       console.log("Edit button pressed:" + $(this).val())
       var i = $(this).val()
       var lyricBooleanEdit = document.getElementById(`lyric-${i}`).checked;
