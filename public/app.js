@@ -20,7 +20,7 @@ $(document).ready(function () {
   })
 
   // Show Create Category Tool
-  $("#createCategory").on("click", function() {
+  $("#createCategory").on("click", function () {
     $('.caption-input-form').hide();
     $('.category-input-form').show();
   })
@@ -32,8 +32,8 @@ $(document).ready(function () {
     window.location.assign("/admin")
   })
 
-   //from manager view, on click view jobs button
-   $("#viewMainCaptions").on("click", function (event) {
+  //from manager view, on click view jobs button
+  $("#viewMainCaptions").on("click", function (event) {
     event.preventDefault();
     console.log("view list of all main captions");
     window.location.assign("/admin/view/maincaptions")
@@ -107,7 +107,7 @@ $(document).ready(function () {
 
   })
 
-})
+
 
 
 
@@ -118,3 +118,68 @@ $(document).ready(function () {
     //   alert("Youre request has been submitted!")
     //   location.reload()
     // })
+
+    //////////////////////////////////////////////////////////////////////
+    ////////////////////// LIVE TABLE EDIT FUNCTIONS /////////////////////
+    //////////////////////////////////////////////////////////////////////
+    $(".edit-button").on("click", function(event) {
+      event.preventDefault();
+      console.log("Edit button pressed:" + $(this).val())
+      var i = $(this).val()
+      var lyricBooleanEdit = document.getElementById(`lyric-${i}`).checked;
+      var quoteBooleanEdit = document.getElementById(`quote-${i}`).checked
+
+      var newEdits = {
+        caption: $(`.caption-${i}`).val().trim(),
+        category: $(`.category-${i}`).val().trim(),
+        tags: $(`.tags-${i}`).val().trim(),
+        author: $(`.author-${i}`).val().trim(),
+        reference: $(`.reference-${i}`).val().trim(),
+        lyric: lyricBooleanEdit,
+        quote: quoteBooleanEdit,
+        originalAuthor: $(`.originalAuthor-${i}`).val().trim(),
+        likes: $(`.likes-${i}`).val().trim()
+      }
+
+      console.log(newEdits)
+
+      $.ajax("/admin/maincaptions/edit/" + i, {
+        type: "PUT",
+        data: newEdits
+      }).then(function(){
+        alert("You've updated this caption!");
+        location.reload();
+      })
+
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  })

@@ -31,4 +31,26 @@ module.exports = function (app) {
         })
     });
 
+    app.get("/admin/view/live/maincaptions", function(req, res) {
+
+        db.Maincaption.find({}).then(function(dbCaptions){
+
+
+            res.render("liveTableMain", {
+                captions: dbCaptions
+            })
+        })
+    });
+ 
+    app.get("/admin/view/live/test", function(req, res) {
+
+        db.Maincaption.find({}).then(function(dbCaptions){
+
+
+            res.render("liveTableTest", {
+                captions: dbCaptions
+            })
+        })
+    });
+
 }
