@@ -12,22 +12,46 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Tools!
+                        Creation Tools
                     </a>
                     <!-- Here's the magic. Add the .animate and .slide-in classes to your .dropdown-menu and you're all set! -->
                     <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" id="createCaption" href="#">Create Caption</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" id="createCategory" href="#">Create Categories</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" id="viewMainCaptions" href="#">View Mira Captions</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" id="editMainCaptions" href="#">Edit Mira Captions</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" id="viewCommunityCaptions" href="#">View Community Captions</a>
+                        <a class="dropdown-item" id="createCategory" href="#">Create Category</a>
                         <div class="dropdown-divider"></div>
                     </div>
                 </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Mila Tools
+                    </a>
+                    <!-- Here's the magic. Add the .animate and .slide-in classes to your .dropdown-menu and you're all set! -->
+                    <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" id="viewMainCaptions" href="#">View Mila</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" id="editMainCaptions" href="#">Edit Mila</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" id="viewFeaturedMainCaptions" href="#">View Featured Mila</a>
+                        <div class="dropdown-divider"></div>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Community Tools
+                    </a>
+                    <!-- Here's the magic. Add the .animate and .slide-in classes to your .dropdown-menu and you're all set! -->
+                    <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" id="viewCommunityCaptions" href="#">View Community</a>
+                        <div class="dropdown-divider"></div>
+                    </div>
+                </li>
+
+
 
             </ul>
         </div>
@@ -100,6 +124,40 @@
     </div>
     {{!-- </div> --}}
 
+
+    <div id="featured-main-captions">
+        <div class="card" style="height: 50%; background-color: #24355C">
+            <div id="featured-main-table">
+                <div class="text-white" style="background-color: #24355C">
+                    <h3>Featured Captions</h3>
+                    <table class="table table-responsive">
+                        {{#each captions}}
+                        <thead>
+                            <tr>
+                                <th>Caption</th>
+                                <th>Author</th>
+                                <th>Category</th>
+                                <th>Source</th>
+                                <th>Toggle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{caption}}</td>
+                                <td>{{author}}</td>
+                                <td>{{category}}</td>
+                                <td>{{originalAuthor}}</td>
+                                <td><button type="button" class="btn btn-outline-danger unfeature-main-button"
+                                        value="{{id}}">Un-Feature</button></td>
+                            </tr>
+                        </tbody>
+                        {{/each}}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="category-input-form">
         <div class="text-center" style="background: pink">
             <h3><strong><u>Category Input Form</u></strong></h3>
@@ -109,23 +167,25 @@
                     <label for="category-text">Input Category Type here</label>
                     <input type="text" id="category-text">
                     <br>
-                
-                {{!-- Submit Info  --}}
-                {{!-- <button type="submit">Input Your Request</button> --}}
-                {{!-- <button class="btn btn-secondary btn-rounded" type="submit"><i class="far fa-clone left"></i>
+
+                    {{!-- Submit Info  --}}
+                    {{!-- <button type="submit">Input Your Request</button> --}}
+                    {{!-- <button class="btn btn-secondary btn-rounded" type="submit"><i class="far fa-clone left"></i>
                     Submit this caption</button> --}}
-                <button class="btn btn-secondary btn-rounded" id="admin-category-btn" type="button"><i
-                        class="far fa-clone left"></i>
-                    Submit this category</button>
+                    <button class="btn btn-secondary btn-rounded" id="admin-category-btn" type="button"><i
+                            class="far fa-clone left"></i>
+                        Submit this category</button>
             </form>
             <div>
                 <h5>Existing Categories Here (Will be editable in the future)</h5>
                 {{#each categories}}
-                    <p><strong>{{category}}</strong></p>
+                <p><strong>{{category}}</strong></p>
                 {{/each}}
             </div>
         </div>
     </div>
+
+
 
 
 </div>

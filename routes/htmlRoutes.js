@@ -14,9 +14,15 @@ module.exports = function (app) {
 
         db.Category.find({}, null, {sort: {category: 1}}).then(function(dbCategories){
             
+            db.Maincaption.find({featured: true}, null, {sort: {updatedAt: -1}}).then(function(dbCaptions){
+
+
             res.render("admin", {
-                categories: dbCategories
+                categories: dbCategories,
+                captions: dbCaptions
             })
+            })
+
         })
 
     });

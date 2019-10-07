@@ -10,19 +10,30 @@ $(document).ready(function () {
   // Hide Admin Tools
   $('.caption-input-form').hide();
   $('.category-input-form').hide();
+  $('#featured-main-captions').hide();
 
 
   // Show Admin Tools
   // Show Create Caption Tool
   $("#createCaption").on("click", function () {
     $('.category-input-form').hide();
+    $('#featured-main-captions').hide();
     $('.caption-input-form').show();
   })
 
   // Show Create Category Tool
   $("#createCategory").on("click", function () {
     $('.caption-input-form').hide();
+    $('#featured-main-captions').hide();
     $('.category-input-form').show();
+  })
+
+  // Show Featured Main Captions Tool
+  $("#viewFeaturedMainCaptions").on("click", function () {
+    console.log("clicked")
+    $('.caption-input-form').hide();
+    $('#featured-main-captions').show();
+    $('.category-input-form').hide();
   })
 
   //Return from any foreign view back to Admin dashboard
@@ -193,6 +204,27 @@ $(document).ready(function () {
 
       var featureToggle = {
         featured: true
+      }
+
+      $.ajax("/admin/maincaptions/feature/" + id, {
+        type: "PUT",
+        data: featureToggle
+      }).then(function() {
+        alert("You've featured this caption!");
+        location.reload();
+      })
+    
+    })
+
+    $(".unfeature-main-button").on("click", function(event){ 
+      event.preventDefault();
+
+      alert("You've chosen to unfeature button for ID#: " + $(this).val())
+
+      var id = $(this).val();
+
+      var featureToggle = {
+        featured: false
       }
 
       $.ajax("/admin/maincaptions/feature/" + id, {
