@@ -76,6 +76,7 @@ $(document).ready(function () {
       reference: $("#caption-reference").val().trim(),
       lyric: lyricBoolean,
       quote: quoteBoolean,
+      // featured: false,
       originalAuthor: $("#caption-original-author").val().trim(),
     }
 
@@ -183,7 +184,26 @@ $(document).ready(function () {
     })
 
 
+    $(".feature-main-button").on("click", function(event){ 
+      event.preventDefault();
 
+      alert("You've chosen to feature button for ID#: " + $(this).val())
+
+      var id = $(this).val();
+
+      var featureToggle = {
+        featured: true
+      }
+
+      $.ajax("/admin/maincaptions/feature/" + id, {
+        type: "PUT",
+        data: featureToggle
+      }).then(function() {
+        alert("You've featured this caption!");
+        location.reload();
+      })
+    
+    })
 
 
 

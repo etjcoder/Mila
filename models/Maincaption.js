@@ -64,6 +64,11 @@ var MainCaptionSchema = new Schema({
         required: false,
         unique: false
     }, 
+    featured: {
+        type: Boolean,
+        required: true,
+        default: false
+    },
     comment: [{
         type: Schema.Types.ObjectId,
         ref: "Comment"

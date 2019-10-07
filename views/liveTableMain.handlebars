@@ -60,6 +60,7 @@
                         <th>Tags (don't include spaces)</th>
                         <th>Author</th>
                         <th>Reference</th>
+                        <th>Featured?</th>
                         <th>Lyric? (must re-designate on edit)</th>
                         <th>Quote? (must re-designate on edit)</th>
                         <th>Original Author</th>
@@ -83,6 +84,7 @@
                             <td><input style="" type="text" class="tags-{{id}}" value="{{tags}}"></td>
                             <td><input style="width: 75px;" type="text" class="author-{{id}}" value="{{author}}"></td>
                             <td><input style="" type="text" class="reference-{{id}}" value="{{reference}}"></td>
+                            <td><p style="width:50px;">{{featured}}</p></td>
                             <td><input style="width: 50px;" type="checkbox" id="lyric-{{id}}"></td>
                             <td><input style="width: 50px;" type="checkbox" id="quote-{{id}}"></td>
                             <td><input style="width: 100px;" type="text" class="originalAuthor-{{id}}"
@@ -92,6 +94,7 @@
                                 <td><input type="text" class="comments-{{id}}" value="{{comments}}"></td>
                                 <td><input type="text" class="created_at-{{id}}" value="{{created_at}}"></td> --}}
                             {{!-- <td><input type="text" class="updatedAt-{{id}}" value="{{updatedAt}}"></td> --}}
+                            <td><button type="button" class="btn btn-success feature-main-button" value="{{id}}">Feature</button></td>
                             <td><button type="submit" class="btn btn-primary edit-main-button" value="{{id}}">Edit</button></td>
                             <td><button type="submit" class="btn btn-danger delete-main-button" value="{{id}}">Delete</button></td>
 

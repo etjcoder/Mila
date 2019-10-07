@@ -105,4 +105,27 @@ module.exports = function (app) {
     
     });
 
+    app.put("/admin/maincaptions/feature/:id", function (req, res) {
+
+        var id = req.params.id;
+
+        // setTimeout(function () {
+        db.Maincaption.update({ _id: id },
+            {
+                featured: req.body.featured
+            }
+
+        ).then(function (dbCaptions) {
+
+            console.log(dbCaptions)
+        })
+
+    })
+
+
+
+
+
+
+
 }
