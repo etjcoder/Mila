@@ -1,0 +1,55 @@
+<link rel="stylesheet" href="/styles/table.css">
+
+<nav class="navbar navbar-light bg-light justify-content-between">
+    <a class="navbar-brand">MILA</a>
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        </input>
+        <a class="btn btn-default" type="submit">
+            <i class="fas fa-search"></i>
+        </a>
+        <button id="homeBtn" type="button" class="btn btn-light">Home</button>
+    </form>
+</nav>
+<div class="container text-center">
+
+
+
+    <div class="" style="text-align: center">
+        <div class="row">
+            <div class="col bg-dark">
+                <h2 style="color: whitesmoke">Suggestables:</h2>
+                <div class="row">
+
+                    {{#each suggestables}}
+
+                    <div class="col-12">
+                        <div class="card bg-dark" style="width: 100%">
+                            <img class="suggestable-image" src="{{imageURL}}" style="" alt="Card image cap">
+                            <div class="card-body" style="color: whitesmoke">
+                                <h5 class="card-title">Category: {{category}}</h5>
+                                <p class="card-text">{{description}}</p>
+                                <p class="card-text">{{tags}}</p>
+                                <p class="card-text">Likes: {{likes}}</p>
+                                <hr>
+                                <button id="view-suggested-captions" class="btn btn-info view-suggested-captions"
+                                    value="{{id}}">View already suggested captions</button>
+                                <hr>
+                                <button id="suggestable-suggest-caption" class="btn btn-info" value="{{id}}"> Suggest a
+                                    Caption </button>
+
+                            </div>
+                        </div>
+                        {{!-- Caption recommendation This should really be a modal form that contains more details for the user including tags and such like a normal caption form--}}
+                        {{!-- <label for="suggestable-caption-submit">Describe the context and what you're going for</label>
+                        <input type="text" class="form-control" id="suggestable-caption-submit">
+                        <br> --}}
+                    </div>
+
+                    {{/each}}
+
+                </div>
+            </div>
+
+        </div>
+    </div>
