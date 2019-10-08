@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="/styles/table.css">
+
+
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #24355C">
     <div class="container">
         <a class="navbar-brand" href="#">Admin tools</a>
@@ -60,7 +63,7 @@
 
 
 <div class="container text-center">
-    <div class="jumbotron jumbotron-fluid" style="">
+    <div class="jumbotron jumbotron-fluid" id="adminJumbotron">
         <div class="container">
             <h1 class="display-4 text-dark"><strong>Welcome to the Admin View!</strong></h1>
             <p class="lead text-dark"><strong>Please submit your Captions here!</strong></p>
@@ -71,13 +74,13 @@
     {{!-- <div class="row"> --}}
 
     <div class="caption-input-form">
-        <div class="text-center" style="background: lightpink">
+        <div>
             <h3><strong><u>Caption Input Form</u></strong></h3>
             <form id="admin-caption-input" method="POST">
                 <div class="form-group">
                     {{!-- Your name --}}
                     <label for="caption-text">Input Caption Text here</label>
-                    <input type="text" id="caption-text">
+                    <input type="text" class="form-control" id="caption-text">
                     <br>
                     {{!-- Your email --}}
                     <label for="caption-category">Please select your Category</label>
@@ -92,14 +95,14 @@
                     <input type="text" id="caption-tags">
                     <br>
                     {{!-- Customer Address --}}
-                    <label for="caption-author">What is your name? (Optional)</label>
+                    <label for="caption-author">What is your name? (Optional)  </label>
                     <input type="text" value="Mila" id="caption-author">
                     <br>
                     <br>
                     <p><strong><i><u>Only answer below if this isn't an original caption</u></i></strong></p>
-                    <br>
+                    
                     {{!-- Customer Acreage --}}
-                    <label for="caption-reference">What is this caption referencing?</label>
+                    <label for="caption-reference">What is this caption referencing?  </label>
                     <input type="text" id="caption-reference"><br>
                     {{!-- Whether it's a lyric --}}
                     <input type="checkbox" name="lyric" id="caption-lyric">Lyric <br>
@@ -108,7 +111,7 @@
                     <br>
                     {{!-- Original Author/Source --}}
                     <label for="caption-original-author">What is the source of this caption? (name of author, movie,
-                        song, etc.)</label>
+                        song, etc.)  </label>
                     <input type="text" id="caption-original-author">
                     <br>
                 </div>
@@ -159,7 +162,7 @@
     </div>
 
     <div class="category-input-form">
-        <div class="text-center" style="background: pink">
+        <div>
             <h3><strong><u>Category Input Form</u></strong></h3>
             <form id="admin-caption-input" method="POST">
                 <div class="form-group">
@@ -167,7 +170,6 @@
                     <label for="category-text">Input Category Type here</label>
                     <input type="text" id="category-text">
                     <br>
-
                     {{!-- Submit Info  --}}
                     {{!-- <button type="submit">Input Your Request</button> --}}
                     {{!-- <button class="btn btn-secondary btn-rounded" type="submit"><i class="far fa-clone left"></i>
@@ -176,8 +178,9 @@
                             class="far fa-clone left"></i>
                         Submit this category</button>
             </form>
+            <br>
             <div>
-                <h5>Existing Categories Here (Will be editable in the future)</h5>
+                <h5>Existing Categories Here (will be editable in the future)</h5>
                 {{#each categories}}
                 <p><strong>{{category}}</strong></p>
                 {{/each}}
