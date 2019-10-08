@@ -24,6 +24,7 @@ module.exports = function (app) {
     });
 
     app.post("/user/submit/caption", function (req, res) {
+        
         console.log(req.body);
         var lowerCaseTags = req.body.tags.toLowerCase();
         var splicedArr = lowerCaseTags.split(', ')
@@ -35,11 +36,24 @@ module.exports = function (app) {
                 db.Communitycaption.updateOne({ _id: dbCaption._id}, { $set: { tags: splicedArr} }, function (err) {
                     if (err) return res.send("communitycaption addMsg error " + err);
                 });
-
-
             })
+    });
 
-    })
+    app.post("/user/submit/suggestable", function (req, res) {
+
+        console.log(req.body);
+        var lowerCaseTags = req.body.tags.toLowerCase();
+        var splicedArr = lowerCaseTags.split(', ')
+        console.log(splicedArr);
+
+        db.Suggestableimage.create(req.body)
+            .then(function (dbCaption) {
+                console.log(dbCaption);
+                db.Suggestableimage.updateOne({ _id: dbCaption._id}, { $set: { tags: splicedArr } }, function (err) {
+                    if (err) return res.send("user suggestable addMsg error " + err);
+                })
+            })
+    });
 
     //This route handles the submission of a new category on the Admin page
     app.post("/admin/submit/category", function (req, res) {

@@ -316,6 +316,32 @@ $(document).ready(function () {
 
   })
 
+  ///////////////////////////////////////////////////////////////////
+  //////////////////// USER SUGGESTABLE BUTTON //////////////////////
+  ///////////////////////////////////////////////////////////////////
+  $("#user-suggestable-btn").on("click", function() { 
+    event.preventDefault();
+
+    var newSuggestable = {
+      imageURL: $("#suggestable-image").val().trim(),
+      category: $("#suggestable-category").val().trim(),
+      description: $("#suggestable-description").val().trim(),
+      tags: $("#suggestable-tags").val().trim(),
+      username: $("#suggestable-username").val().trim()   
+    }
+
+    console.log(newSuggestable);
+
+    $.ajax("user/submit/suggestable", {
+      type: "POST",
+      data: newSuggestable
+    }).then(function () {
+      alert("Your suggestable has been submitted!");
+      location.reload();
+    })
+
+  })
+
   //////////////////////////////////////////////////////////////////
   ///////////////////// USER LIVE TABLE EDIT TABLE /////////////////
   //////////////////////////////////////////////////////////////////
@@ -352,6 +378,7 @@ $(document).ready(function () {
     })
 
   })
+
 
 
 

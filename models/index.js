@@ -8,5 +8,6 @@ module.exports = {
     Category: require("./Category"),
     Tag: require("./Tag"),
     User: require("./User"),
-    Comment: require("./Comment")
+    Comment: require("./Comment"),
+    Suggestableimage: require("./Suggestableimage")
 }

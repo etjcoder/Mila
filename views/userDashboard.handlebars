@@ -168,6 +168,64 @@
         </div>
     </div>
 
+    <div id="user-suggestable-form" style="text-align: center; background: lightcyan">
+        <div class="row" style="text-align: center">
+            <h4>This is the Suggestable Box!</h4>
+            <h5>You can upload a photograph and only other Mila users will be able to see it.</h5>
+            <h6>They will suggest captions and you can give your favorite one a Gold Star Point!</h6>
+        </div>
+        <div class="row">
+
+            <div class="col">
+
+                <div class="suggestable-input-form">
+                    <div>
+                        <h3><strong><u>Suggestable Creation Form</u></strong></h3>
+                        <form id="user-suggestable-input" method="POST">
+                            <div class="form-group">
+                                {{!-- Image URL / Link --}}
+                                <label for="suggestable-image">Input Image Here</label>
+                                <input type="text" class="form-control" id="suggestable-image">
+                                <br>
+                                {{!-- Suggestable Category --}}
+                                <label for="caption-category">Please select your Category</label>
+                                <select name="categories" id="suggestable-category">
+                                    {{#each categories}}
+                                    <option value={{category}}>{{category}}</option>
+                                    {{/each}}
+                                </select>
+                                <br>
+                                {{!-- Description --}}
+                                <label for="suggestable-description">Describe the context and what you're going for</label>
+                                <input type="text" class="form-control" id="suggestable-description">
+                                <br>
+
+                                {{!-- Tags --}}
+                                <label for="suggestable-tags">Please enter your tags, remember to separate with a comma!</label>
+                                <input type="text" id="suggestable-tags">
+                                <br>
+
+
+                                {{!-- Username --}}
+                                <label for="suggestable-username">Please enter your username</label>
+                                <input type="text" id="suggestable-username">
+                                <br>
+
+                                <button class="btn btn-secondary btn-rounded" id="user-suggestable-btn" type="button"><i
+                                        class="far fa-clone left"></i>
+                                    Submit this Suggestable</button>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
 
 
 
