@@ -1,0 +1,73 @@
+<link rel="stylesheet" href="/styles/table.css">
+        {{!-- <div class="col">
+                <button id="foremanBtn" type="button" class="btn">Foreman</button>
+            </div> --}}
+  
+  {{!-- navbar --}}
+  <nav class="navbar navbar-light bg-light justify-content-between">
+  <a class="navbar-brand">MILA</a>
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    </input>
+    <a class="btn btn-default" type="submit">
+    <i class="fas fa-search"></i>
+    </a>
+    <button id="userBtn" type="button" class="btn btn-light">Back</button>
+  </form>
+  </nav>
+  <div class="container text-center">    
+
+    <!-- Table to Display All Job Info -->
+    <div class="row" id="tableBody">
+        <div class="col">
+            <div class="table">
+                <h1>My Captions</h1>
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            {{!-- <th>ID</th> --}}
+                            <th>Caption</th>
+                            <th>Category</th>
+                            <th>Tags</th>
+                            <th>Author</th>
+                            <th>Reference</th>
+                            <th>Featured?</th>
+                            <th>Lyric?</th>
+                            <th>Quote?</th>
+                            <th>Original Author</th>
+                            <th>Likes</th>
+                            <th>Uses</th>
+                            <th>Images</th>
+                            <th>Comments</th>
+                            <th>Created</th>
+                            <th>Last Updated</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each captions}}
+                        <tr>
+                            {{!-- <td>{{id}}</td> --}}
+                            <td>{{caption}}</td>
+                            <td>{{category}}</td>
+                            <td>{{tags}}</td>
+                            <td>{{username}}</td>
+                            <td>{{reference}}</td>
+                            <td>{{featured}}</td>
+                            <td>{{lyric}}</td>
+                            <td>{{quote}}</td>
+                            <td>{{originalAuthor}}</td>
+                            <td>{{likes}}</td>
+                            <td>{{uses}}</td>
+                            <td>{{images}}</td>
+                            <td>{{comments}}</td>
+                            <td>{{moment created_at format="MM-DD-YYYY"}}</td>
+                            <td>{{moment updatedAt format="MM-DD-YYYY"}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>

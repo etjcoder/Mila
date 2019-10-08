@@ -63,10 +63,6 @@
             <h3><strong><u>Caption Creation Form</u></strong></h3>
             <form id="user-caption-input" method="POST">
                 <div class="form-group">
-                    {{!-- Username --}}
-                    <label for="caption-text">Input Your Username here</label>
-                    <input type="text" class="form-control" id="caption-username">
-                    <br>
                     {{!-- Your name --}}
                     <label for="caption-text">Input Caption Text here</label>
                     <input type="text" class="form-control" id="caption-text">
@@ -84,14 +80,14 @@
                     <input type="text" id="caption-tags">
                     <br>
                     {{!-- Customer Address --}}
-                    <label for="caption-author">What is your name? (Optional)  </label>
-                    <input type="text" value="-username-" id="caption-author">
+                    <label for="caption-username">What is your name? (Optional) </label>
+                    <input type="text" value="-username-" id="caption-username">
                     <br>
                     <br>
                     <p><strong><i><u>Only answer below if this isn't an original caption</u></i></strong></p>
-                    
+
                     {{!-- Customer Acreage --}}
-                    <label for="caption-reference">What is this caption referencing?  </label>
+                    <label for="caption-reference">What is this caption referencing? </label>
                     <input type="text" id="caption-reference"><br>
                     {{!-- Whether it's a lyric --}}
                     <input type="checkbox" name="lyric" id="caption-lyric">Lyric <br>
@@ -100,7 +96,7 @@
                     <br>
                     {{!-- Original Author/Source --}}
                     <label for="caption-original-author">What is the source of this caption? (name of author, movie,
-                        song, etc.)  </label>
+                        song, etc.) </label>
                     <input type="text" id="caption-original-author">
                     <br>
                 </div>
@@ -117,7 +113,58 @@
     {{!-- </div> --}}
 
 
-    
+    <div id="user-statistics-card">
+        <div class="card">
+            <div class="row">
+                <div class="col-6">
+                    <h3>Total Likes:</h3>
+                    <hr>
+                    <h4> {{likes}}</h4>
+                </div>
+                <div class="col-6">
+                    <h3>Gold Stars:</h3>
+                    <hr>
+                    <h4> {{goldstars}}</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div id="featured-user-captions">
+                        <div class="card" style="height: 50%; background-color: #24355C">
+                            <div id="featured-main-table">
+                                <div class="text-white" style="background-color: #24355C">
+                                    <h3>My Featured Captions</h3>
+                                    <table class="table table-responsive">
+                                        {{!-- Want to add and #if here that will say "No captions have been featured yet! Keep trying! if captions.length < 1" --}}
+                                        {{#each captions}}
+                                        <thead>
+                                            <tr>
+                                                <th>Caption</th>
+                                                <th>Author</th>
+                                                <th>Category</th>
+                                                <th>Source</th>
+                                                <th>Toggle</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>{{caption}}</td>
+                                                <td>{{author}}</td>
+                                                <td>{{category}}</td>
+                                                <td>{{originalAuthor}}</td>
+                                            </tr>
+                                        </tbody>
+                                        {{/each}}
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 
 

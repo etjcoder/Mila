@@ -57,7 +57,7 @@ var SuggestedCaptionSchema = new Schema({
         required: false,
         unique: false
     }, 
-    comment: [{
+    comments: [{
         type: Schema.Types.ObjectId,
         ref: "Comment"
     }], 

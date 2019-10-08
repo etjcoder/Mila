@@ -43,6 +43,14 @@ $(document).ready(function () {
     window.location.assign("/admin")
   })
 
+
+  //Return from any foreign view back to User dashboard
+  $("#userBtn").on("click", function (event) {
+    event.preventDefault();
+    console.log("You are now going to user view");
+    window.location.assign("/user")
+  })
+
   //from manager view, on click view jobs button
   $("#viewMainCaptions").on("click", function (event) {
     event.preventDefault();
@@ -263,10 +271,10 @@ $(document).ready(function () {
     // console.log(tagsArr);
 
     var newCaption = {
-      username: $("#caption-username").val().trim(),
+      // username: $("#caption-username").val().trim(),
       caption: $("#caption-text").val().trim(),
       category: $("#caption-category").val().trim(),
-      author: $("#caption-author").val().trim(),
+      username: $("#caption-username").val().trim(),
       tags: $("#caption-tags").val().trim(),
       reference: $("#caption-reference").val().trim(),
       lyric: lyricBoolean,

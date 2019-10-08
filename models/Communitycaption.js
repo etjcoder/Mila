@@ -18,7 +18,7 @@ var CommunityCaptionSchema = new Schema({
         required: false,
         unique: false
     },
-    author: {
+    username: {
         type: String,
         required: false,
         unique: false,
@@ -34,6 +34,11 @@ var CommunityCaptionSchema = new Schema({
         default: false
     }, 
     quote: {
+        type: Boolean,
+        required: true,
+        default: false
+    },
+    featured: {
         type: Boolean,
         required: true,
         default: false
@@ -57,7 +62,7 @@ var CommunityCaptionSchema = new Schema({
         required: false,
         unique: false
     }, 
-    comment: [{
+    comments: [{
         type: Schema.Types.ObjectId,
         ref: "Comment"
     }],

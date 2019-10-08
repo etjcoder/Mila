@@ -31,18 +31,28 @@ module.exports = function (app) {
 
         db.Category.find({}, null, {sort: {category: 1}}).then(function(dbCategories){
             
-            // db.Maincaption.find({featured: true}, null, {sort: {updatedAt: -1}}).then(function(dbCaptions){
+            db.Communitycaption.find({username: "testuser"}, null, {sort: {updatedAt: -1}}).then(function(dbCaptions){
 
 
             res.render("userDashboard", {
                 categories: dbCategories,
-                // captions: dbCaptions
+                captions: dbCaptions
             })
             })
 
-        // })
+        })
 
     });
+
+    app.get("/user/view/mycaptions", function(req, res){
+
+        db.Communitycaption.find({ username: "testuser"}).then(function(dbCaptions) {
+
+            res.render("userCaptionTable", {
+                captions: dbCaptions
+            })
+        })
+    })
 
 
     app.get("/admin/view/maincaptions", function(req, res) {
