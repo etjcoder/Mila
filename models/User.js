@@ -46,13 +46,17 @@ var UserSchema = new Schema({
         required: true,
         default: 0
     }, 
-    captions: [{
+    myCommunityCaptions: [{
         type: Schema.Types.ObjectId,
-        ref: "Captions"
+        ref: "Communitycaptions"
     }], 
+    mySuggestedCaptions: [{
+        type: Schema.Types.ObjectId,
+        ref: "Suggestedcaptions"
+    }],
     comments: [{
         type: Schema.Types.ObjectId,
-        ref: "Commentss"
+        ref: "Comments"
     }],
 }, {
     timestamps: {

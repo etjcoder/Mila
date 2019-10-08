@@ -18,7 +18,7 @@ var SuggestedCaptionSchema = new Schema({
         required: false,
         unique: false
     },
-    author: {
+    username: {
         type: String,
         required: false,
         unique: false,

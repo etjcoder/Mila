@@ -1,0 +1,160 @@
+<link rel="stylesheet" href="/styles/table.css">
+
+
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #24355C">
+    <div class="container">
+        <a class="navbar-brand" href="#">User dashboard</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Creation Tools
+                    </a>
+                    <!-- Here's the magic. Add the .animate and .slide-in classes to your .dropdown-menu and you're all set! -->
+                    <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" id="createCaption" href="#">Create Caption</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" id="createCategory" href="#">Create Suggestable</a>
+                        <div class="dropdown-divider"></div>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        User Tools
+                    </a>
+                    <!-- Here's the magic. Add the .animate and .slide-in classes to your .dropdown-menu and you're all set! -->
+                    <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" id="viewMainCaptions" href="#">View My Captions</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" id="editMainCaptions" href="#">View My Statistics</a>
+                        <div class="dropdown-divider"></div>
+                    </div>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container text-center">
+    <div class="jumbotron jumbotron-fluid" id="userJumbotron">
+        <div class="container">
+            <h1 class="display-4 text-dark"><strong>Welcome to the User Dashboard!</strong></h1>
+            <p class="lead text-dark"><strong>There are many fun tools here!</strong></p>
+        </div>
+    </div>
+
+    <br>
+    {{!-- <div class="row"> --}}
+
+    <div class="caption-input-form">
+        <div>
+            <h3><strong><u>Caption Creation Form</u></strong></h3>
+            <form id="user-caption-input" method="POST">
+                <div class="form-group">
+                    {{!-- Username --}}
+                    <label for="caption-text">Input Your Username here</label>
+                    <input type="text" class="form-control" id="caption-username">
+                    <br>
+                    {{!-- Your name --}}
+                    <label for="caption-text">Input Caption Text here</label>
+                    <input type="text" class="form-control" id="caption-text">
+                    <br>
+                    {{!-- Your email --}}
+                    <label for="caption-category">Please select your Category</label>
+                    <select name="categories" id="caption-category">
+                        {{#each categories}}
+                        <option value={{category}}>{{category}}</option>
+                        {{/each}}
+                    </select>
+                    <br>
+                    {{!-- Your phone number --}}
+                    <label for="caption-tags">Please enter your tags, remember to separate with a comma!</label>
+                    <input type="text" id="caption-tags">
+                    <br>
+                    {{!-- Customer Address --}}
+                    <label for="caption-author">What is your name? (Optional)  </label>
+                    <input type="text" value="-username-" id="caption-author">
+                    <br>
+                    <br>
+                    <p><strong><i><u>Only answer below if this isn't an original caption</u></i></strong></p>
+                    
+                    {{!-- Customer Acreage --}}
+                    <label for="caption-reference">What is this caption referencing?  </label>
+                    <input type="text" id="caption-reference"><br>
+                    {{!-- Whether it's a lyric --}}
+                    <input type="checkbox" name="lyric" id="caption-lyric">Lyric <br>
+                    {{!-- Whether it's a caption  --}}
+                    <input type="checkbox" name="quote" id="caption-quote">Quote
+                    <br>
+                    {{!-- Original Author/Source --}}
+                    <label for="caption-original-author">What is the source of this caption? (name of author, movie,
+                        song, etc.)  </label>
+                    <input type="text" id="caption-original-author">
+                    <br>
+                </div>
+                {{!-- Submit Info  --}}
+                {{!-- <button type="submit">Input Your Request</button> --}}
+                {{!-- <button class="btn btn-secondary btn-rounded" type="submit"><i class="far fa-clone left"></i>
+                    Submit this caption</button> --}}
+                <button class="btn btn-secondary btn-rounded" id="user-caption-btn" type="button"><i
+                        class="far fa-clone left"></i>
+                    Submit this caption</button>
+            </form>
+        </div>
+    </div>
+    {{!-- </div> --}}
+
+
+    
+
+
+
+    <div id="featured-main-captions">
+        <div class="card" style="height: 50%; background-color: #24355C">
+            <div id="featured-main-table">
+                <div class="text-white" style="background-color: #24355C">
+                    <h3>Featured Captions</h3>
+                    <table class="table table-responsive">
+                        {{#each captions}}
+                        <thead>
+                            <tr>
+                                <th>Caption</th>
+                                <th>Author</th>
+                                <th>Category</th>
+                                <th>Source</th>
+                                <th>Toggle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{caption}}</td>
+                                <td>{{author}}</td>
+                                <td>{{category}}</td>
+                                <td>{{originalAuthor}}</td>
+                                <td><button type="button" class="btn btn-outline-danger unfeature-main-button"
+                                        value="{{id}}">Un-Feature</button></td>
+                            </tr>
+                        </tbody>
+                        {{/each}}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
