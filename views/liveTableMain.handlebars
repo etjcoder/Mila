@@ -10,7 +10,7 @@
     SPAN.td {
         display: table-cell;
         height: 10px;
-        width: 30px;
+        width: 20px;
     }
 
     DIV.tr-main {
@@ -32,37 +32,45 @@
     }
 </style>
 
+  {{!-- navbar --}}
+  <nav class="navbar navbar-light bg-light justify-content-between">
+  <a class="navbar-brand">MILA</a>
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    </input>
+    <a class="btn btn-default" type="submit">
+    <i class="fas fa-search"></i>
+    </a>
+    <button id="adminBtn" type="button" class="btn btn-light">Back</button>
+  </form>
+  </nav>
+
+
 <div class="container">
     <div class="text-center">
-
-        <div class="jumbotron jumbotron-fluid" style="">
+        <div class="jumbotron jumbotron-fluid" id="liveTableJumbotron">
             <div class="container">
                 <h1 class="display-4 text-dark"><strong>Welcome to the Live Table!</strong></h1>
-                <p class="lead text-dark"><strong>Please make any edits you see fit and be sure to press the 'Edit'
-                        button
-                        to save your changes!</strong></p>
-                <button id="adminBtn" type="button" class="btn btn-primary">Return</button>
+                <p class="lead text-dark"><strong>Please make any edits you see fit and be sure to press 
+                    the 'Edit' button to save your changes!</strong></p>
             </div>
         </div>
-
         <br>
 
-
-        <h1 style="color: white">All Mira Captions</h1>
-        <div class="table" style="">
-
-            <table class="table table-responsive">
+        {{!-- <h1 style="color: white">All Mila Captions</h1> --}}
+        <div class="table">
+            <table class="table table-responsive" id="liveTable">
                 <thead>
                     <tr>
                         {{!-- <th>ID</th> --}}
                         <th>Caption</th>
                         <th>Category</th>
-                        <th>Tags (don't include spaces)</th>
+                        <th>Tags<br> (don't include spaces)</th>
                         <th>Author</th>
                         <th>Reference</th>
                         <th>Featured?</th>
-                        <th>Lyric? (must re-designate on edit)</th>
-                        <th>Quote? (must re-designate on edit)</th>
+                        <th>Lyric? <br> (must re-designate on edit)</th>
+                        <th>Quote? <br> (must re-designate on edit)</th>
                         <th>Original Author</th>
                         <th>Likes</th>
                         {{!-- <th>Images</th>
