@@ -140,7 +140,49 @@ module.exports = function (app) {
 
     })
 
+//////////////////////////////////////////////////////
+///////////// USER DASH API ROUTES ///////////////////
+//////////////////////////////////////////////////////
 
+app.put("/user/communitycaptions/edit/:id", function (req, res) {
+
+    var id = req.params.id;
+    console.log(id)
+    console.log(req.body);
+    var lyricBoolean = false;
+    var quoteBoolean = false;
+    var lowerCaseTags = req.body.tags.toLowerCase();
+    var splicedArr = lowerCaseTags.split(',')
+    console.log(splicedArr);
+
+    if (req.body.lyric === "true") {
+        lyricBoolean = true;
+    }
+
+    if (req.body.quote === "true") {
+        quoteBoolean = true;
+    }
+
+    // setTimeout(function () {
+    db.Communitycaption.update({ _id: id },
+        {
+            caption: req.body.caption,
+            category: req.body.category,
+            tags: splicedArr,
+            username: req.body.username,
+            reference: req.body.reference,
+            lyric: req.body.lyric,
+            quote: req.body.quote,
+            originalAuthor: req.body.originalAuthor,
+            likes: req.body.likes
+        }
+
+    ).then(function (dbCaptions) {
+
+        console.log(dbCaptions)
+    })
+
+})
 
 
 

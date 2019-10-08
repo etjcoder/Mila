@@ -21,7 +21,7 @@
                     <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" id="createCaption" href="#">Create Caption</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" id="createCategory" href="#">Create Suggestable</a>
+                        <a class="dropdown-item" id="createSuggestable" href="#">Create Suggestable</a>
                         <div class="dropdown-divider"></div>
                     </div>
                 </li>
@@ -33,9 +33,11 @@
                     </a>
                     <!-- Here's the magic. Add the .animate and .slide-in classes to your .dropdown-menu and you're all set! -->
                     <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" id="viewMainCaptions" href="#">View My Captions</a>
+                        <a class="dropdown-item" id="viewUserCaptions" href="#">View My Captions</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" id="editMainCaptions" href="#">View My Statistics</a>
+                        <a class="dropdown-item" id="editUserCaptions" href="#">Edit My Captions</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" id="viewUserStatistics" href="#">View My Statistics</a>
                         <div class="dropdown-divider"></div>
                     </div>
                 </li>
@@ -124,7 +126,7 @@
                 <div class="col-6">
                     <h3>Gold Stars:</h3>
                     <hr>
-                    <h4> {{goldstars}}</h4>
+                    <h4>{{goldstars}}</h4>
                 </div>
             </div>
             <div class="row">
@@ -163,41 +165,6 @@
                 </div>
             </div>
 
-        </div>
-    </div>
-
-
-
-    <div id="featured-main-captions">
-        <div class="card" style="height: 50%; background-color: #24355C">
-            <div id="featured-main-table">
-                <div class="text-white" style="background-color: #24355C">
-                    <h3>Featured Captions</h3>
-                    <table class="table table-responsive">
-                        {{#each captions}}
-                        <thead>
-                            <tr>
-                                <th>Caption</th>
-                                <th>Author</th>
-                                <th>Category</th>
-                                <th>Source</th>
-                                <th>Toggle</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>{{caption}}</td>
-                                <td>{{author}}</td>
-                                <td>{{category}}</td>
-                                <td>{{originalAuthor}}</td>
-                                <td><button type="button" class="btn btn-outline-danger unfeature-main-button"
-                                        value="{{id}}">Un-Feature</button></td>
-                            </tr>
-                        </tbody>
-                        {{/each}}
-                    </table>
-                </div>
-            </div>
         </div>
     </div>
 

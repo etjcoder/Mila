@@ -12,7 +12,14 @@ $(document).ready(function () {
   $('.category-input-form').hide();
   $('#featured-main-captions').hide();
 
+  // Hide User Tools
+  $('#user-statistics-card').hide();
 
+
+  $("#viewUserStatistics").on("click", function () {
+    $('#user-statistics-card').show();
+
+  })
   // Show Admin Tools
   // Show Create Caption Tool
   $("#createCaption").on("click", function () {
@@ -59,12 +66,25 @@ $(document).ready(function () {
 
   })
 
+  $("#viewUserCaptions").on("click", function (event) {
+    event.preventDefault();
+    console.log("view list of my captions");
+    window.location.assign("/user/view/mycaptions")
+
+  })
+
   $("#editMainCaptions").on("click", function (event) {
     event.preventDefault();
     console.log("edit list of all main captions");
     window.location.assign("/admin/view/live/maincaptions")
   })
 
+
+  $("#editUserCaptions").on("click", function (event) {
+    event.preventDefault();
+    console.log("edit list of all my captions");
+    window.location.assign("/user/view/live/mycaptions")
+  })
 
   ///////////////////////////////////////////////////////////////////
   /////// ADMIN CREATE CAPTION FORM HANDLER /////////////////////////
@@ -296,7 +316,42 @@ $(document).ready(function () {
 
   })
 
+  //////////////////////////////////////////////////////////////////
+  ///////////////////// USER LIVE TABLE EDIT TABLE /////////////////
+  //////////////////////////////////////////////////////////////////
+  
+  $(".edit-user-button").on("click", function(event) {
+    event.preventDefault();
+    alert("Edit registered!");
+    console.log("Edit button pressed:" + $(this).val())
+    var i = $(this).val()
+    var lyricBooleanEdit = document.getElementById(`lyric-${i}`).checked;
+    var quoteBooleanEdit = document.getElementById(`quote-${i}`).checked
+    var likeNum = parseInt($(`.likes-${i}`).val().trim())
 
+    var newEdits = {
+      caption: $(`.caption-${i}`).val().trim(),
+      category: $(`.category-${i}`).val().trim(),
+      tags: $(`.tags-${i}`).val().trim(),
+      username: $(`.username-${i}`).val().trim(),
+      reference: $(`.reference-${i}`).val().trim(),
+      lyric: lyricBooleanEdit,
+      quote: quoteBooleanEdit,
+      originalAuthor: $(`.originalAuthor-${i}`).val().trim(),
+      likes: likeNum
+    }
+
+    console.log(newEdits)
+
+    $.ajax("/user/communitycaptions/edit/" + i, {
+      type: "PUT",
+      data: newEdits
+    }).then(function(){
+      alert("You've updated this caption!");
+      location.reload();
+    })
+
+  })
 
 
 

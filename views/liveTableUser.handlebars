@@ -50,7 +50,7 @@
     <div class="text-center">
         <div class="jumbotron jumbotron-fluid" id="liveTableJumbotron">
             <div class="container">
-                <h1 class="display-4 text-dark"><strong>Welcome to the Live Table!</strong></h1>
+                <h1 class="display-4 text-dark"><strong>Welcome to your Live Table!</strong></h1>
                 <p class="lead text-dark"><strong>Please make any edits you see fit and be sure to press 
                     the 'Edit' button to save your changes!</strong></p>
             </div>
@@ -66,13 +66,13 @@
                         <th>Caption</th>
                         <th>Category</th>
                         <th>Tags<br> (don't include spaces)</th>
-                        <th>Author</th>
+                        <th>Username</th>
                         <th>Reference</th>
                         <th>Featured?</th>
                         <th>Lyric? <br> (must re-designate on edit)</th>
                         <th>Quote? <br> (must re-designate on edit)</th>
                         <th>Original Author</th>
-                        <th>Likes</th>
+                        {{!-- <th>Likes</th> --}}
                         {{!-- <th>Images</th>
                             <th>Comments</th>
                             <th>Created</th> --}}
@@ -90,7 +90,7 @@
                             <td><input style="width: 100px;" type="text" class="category-{{id}}" value="{{category}}">
                             </td>
                             <td><input style="" type="text" class="tags-{{id}}" value="{{tags}}"></td>
-                            <td><input style="width: 75px;" type="text" class="author-{{id}}" value="{{username}}"></td>
+                            <td><input style="width: 75px;" type="text" class="username-{{id}}" value="{{username}}"></td>
                             <td><input style="" type="text" class="reference-{{id}}" value="{{reference}}"></td>
                             <td><p style="width:50px;">{{featured}}</p></td>
                             <td><input style="width: 50px;" type="checkbox" id="lyric-{{id}}"></td>
@@ -102,9 +102,9 @@
                                 <td><input type="text" class="comments-{{id}}" value="{{comments}}"></td>
                                 <td><input type="text" class="created_at-{{id}}" value="{{created_at}}"></td> --}}
                             {{!-- <td><input type="text" class="updatedAt-{{id}}" value="{{updatedAt}}"></td> --}}
-                            <td><button type="button" class="btn btn-success feature-main-button" value="{{id}}">Feature</button></td>
-                            <td><button type="submit" class="btn btn-primary edit-main-button" value="{{id}}">Edit</button></td>
-                            <td><button type="submit" class="btn btn-danger delete-main-button" value="{{id}}">Delete</button></td>
+                            <td><button type="button" class="btn btn-info view-user-comments" value="{{id}}">View Comments</button></td>
+                            <td><button type="submit" class="btn btn-primary edit-user-button" value="{{id}}">Edit</button></td>
+                            <td><button type="submit" class="btn btn-danger delete-user-button" value="{{id}}">Delete</button></td>
 
                         </form>
                         {{/each}}

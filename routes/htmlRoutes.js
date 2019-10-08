@@ -75,7 +75,19 @@ module.exports = function (app) {
                     categories: dbCategories
                 })
             })
+        })
+    });
 
+    app.get("/user/view/live/mycaptions", function(req, res) {
+
+        db.Communitycaption.find({username: "evanjcleary"}, null, {sort: {updatedAt: -1}}).then(function(dbCaptions){
+
+            db.Category.find({}).then(function(dbCategories){
+                res.render("liveTableUser", {
+                    captions: dbCaptions,
+                    categories: dbCategories
+                })
+            })
         })
     });
  
